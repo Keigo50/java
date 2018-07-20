@@ -1,68 +1,117 @@
 @charset "utf-8";
 
 body {
-      max-width: 600px;
+    width: 100%;
+    min-width: 320px;
 }
+
+
 
 #app {
     max-width: 100%;
 }
 
-.header{
+.header {
     display: flex;
     height: 40px;
+    position: relative;
+    background-color: #F26964;
+}
+
+.header_menu {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    bottom:5px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+
 }
 
 .main {
-    height: 500px;/*height:auto*/
+    height: auto
 }
 
-.main_content{
-    margin: 20px;
+.main_content {
+    margin: 0 auto;
     height: 100%;
     background-color: aqua;
 }
 
-.main_date{
+.main_date {
     max-width: 40%;
     height: 60px;
     border: 2px solid black;
 }
 
-.main_list{
-    margin: 10px auto 0 auto;
-    max-width: 80%;
-    height:25px;
-    text-align: center;
+.main_list {
+    margin-top: 15px;
+    width: 200px;
+    height: 25px;
 }
 
-select{
+select {
     max-width: 200px;
     height: 100%;
 }
 
-.main_items{
+.main_items {
     display: flex;
     width: 100%;
     height: auto;
-    justify-content:space-between;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 10px;
 
 }
 
-.items{
-	 line-height: 20px;
-    border-radius: 50px;
-    background-color: coral;
+@media screen and (min-width:601px) {
+	.main_items{
+         display:none;
+   }
 }
 
-.items:empty{
+
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin: 10px 5px 0;
+    border-radius: 1000px;
+    background-color: coral;
+    text-align: center;
+}
+
+.items:empty {
     visibility: hidden;
 }
 
+@media screen and (max-width:370px) {
+    .items {
+        width: 85px;
+        height: 50px;
+        margin: 5px 2px 0;
+    }
+}
 
-.footer{
+
+.main_table {
+    display: block;
+    width: 100%;
+    height: 500px;
+    background-color: red;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    height: auto;
+}
+
+.footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -70,13 +119,12 @@ select{
     height: 100%;
 }
 
-footer{
+footer {
     background-color: chocolate;
     color: white;
 }
 
-img{
-    max-width:100%;
+img {
+    max-width: 100%;
     height: auto;
 }
-

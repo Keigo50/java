@@ -5,20 +5,22 @@ pageEncoding="UTF-8"%>
 
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="stylesheet" href="reset.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css"  />
         <title>AQuality</title>
     </head>
-
 
     <body>
         <header>
             <div class="header">
                 <img src="sample.jpg" width="200px" height="40px" alt="logo" />
+                <div class="header_menu">a</div>
             </div>
         </header>
 
-    
+
         <div class="main">
             <div class="main_content">
                 <div class="main_date">
@@ -35,39 +37,46 @@ pageEncoding="UTF-8"%>
                 </div>
                 <div class="main_items">
                     <div class="items">
-                        a
+                        日付
                     </div>
                     <div class="items">
-                        b
+                        カテゴリ
                     </div>
                     <div class="items">
-                        c
+                        金額
                     </div>
                     <div class="items">
-                        d
+                        入金先
                     </div>
                     <div class="items">
-                        e
+                        支払元
                     </div>
                     <div class="items">
-                        f
+                        お店の名前
                     </div>
                     <div class="items">
-                        g
+                        メモ
                     </div>
-                    <div class="items">
-                    </div>
-                    <div class="items">
-                    </div>
-                    <div class="items">
-                    </div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                </div>
+                <div class="main_table">
+                    <table border="1">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <footer>
-        
+
             <div class="footer">
-                <small>&copy keigo satou 2018</small>
+                <small>&copy; keigo satou 2018</small>
             </div>
         </footer>
 
