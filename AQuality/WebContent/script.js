@@ -1,5 +1,27 @@
 /*global $*/
 
+
+//日付を入れる
+
+
+$(function(){
+setInterval(function(){
+var now = new Date();
+var y = now.getFullYear();
+var m = now.getMonth() + 1;
+var d = now.getDate();
+var w = now.getDay();
+var wd = ['日', '月', '火', '水', '木', '金', '土'];
+var h = now.getHours();
+var mi = now.getMinutes();
+var s = now.getSeconds();
+$('#date').text(y + '年' + m + '月' + d + '日' + '(' + wd[w] + ')');
+$('#date').append('\n\n'+h + '時' + mi + '分' + s + '秒');
+}, 1000);
+});
+
+
+//selectの値をとってきて表示を変える
 function outputSelectedValueAndText(obj)
 {
     var idx = obj.selectedIndex;
@@ -26,3 +48,27 @@ function outputSelectedValueAndText(obj)
     }
 
 }
+
+
+
+//ナビゲーションの設定
+
+
+var nav = $(".navbar-toggle");
+
+$(nav.click(function(){
+	$("#gnavi").slideToggle(250);
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+
