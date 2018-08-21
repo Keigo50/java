@@ -13,6 +13,7 @@ pageEncoding="UTF-8"%>
     </head>
 
     <body>
+    <script src="./jquery-3.2.1.min.js"></script>
         <header>
             <div class="header">
                 <img src="sample.jpg" width="200px" height="40px" alt="logo" />
@@ -28,7 +29,7 @@ pageEncoding="UTF-8"%>
                 </div>
                 <div class="main_list">
                     <label>
-                        <select name="example">
+                        <select name=select  onchange="outputSelectedValueAndText(this);" id="select" >
                             <option value="収入・支出">収入・支出</option>
                             <option value="収入">収入</option>
                             <option value="支出">支出</option>
@@ -36,30 +37,30 @@ pageEncoding="UTF-8"%>
                     </label>
                 </div>
                 <div class="main_items">
-                    <div class="items">
+                    <button type="button" class="items">
                         日付
-                    </div>
-                    <div class="items">
+                    </button>
+                    <button class="items">
                         カテゴリ
-                    </div>
-                    <div class="items">
+                    </button>
+                    <button class="items">
                         金額
-                    </div>
-                    <div class="items">
+                    </button>
+                    <button class="items">
                         入金先
-                    </div>
-                    <div class="items">
+                    </button>
+                    <button class="items">
                         支払元
-                    </div>
-                    <div class="items">
+                    </button>
+                    <button class="items">
                         お店の名前
-                    </div>
-                    <div class="items">
+                    </button>
+                    <button class="items">
                         メモ
-                    </div>
-                    <div class="items"></div>
-                    <div class="items"></div>
-                    <div class="items"></div>
+                    </button>
+                    <button class="items"></button>
+                    <button class="items"></button>
+                    <button class="items"></button>
                 </div>
                 <div class="main_table">
                     <table border="1">
@@ -80,7 +81,7 @@ pageEncoding="UTF-8"%>
             </div>
         </footer>
 
-
+	<script src=./script.js></script>
     </body>
 
     </html>
