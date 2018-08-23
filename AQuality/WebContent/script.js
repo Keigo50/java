@@ -54,10 +54,10 @@ function outputSelectedValueAndText(obj)
 //ナビゲーションの設定
 
 
-var nav = $(".navbar-toggle");
+var nav = $("#btnvalue");
 
 $(nav.click(function(){
-	$("#gnavi").slideToggle(250);
+	$("#gnavi").slideToggle(350);
 }));
 
 

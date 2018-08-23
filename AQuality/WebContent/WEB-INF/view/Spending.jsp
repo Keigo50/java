@@ -52,9 +52,9 @@ pageEncoding="UTF-8"%>
                 </div>
                 <div class="main_list">
                 	<ul class="nav nav-tabs" id="tab">
-  						<li class="active"><a href="ShowServlet">収入・支出</a></li>
+  						<li><a href="ShowServlet">収入・支出</a></li>
   						<li><a href="Income">収入</a></li>
-  						<li><a href="Spending">支出</a></li>
+  						<li  class="active"><a href="Spending">支出</a></li>
 					</ul>
                     <label>
                         <select name=select  onchange="outputSelectedValueAndText(this);" id="select" >

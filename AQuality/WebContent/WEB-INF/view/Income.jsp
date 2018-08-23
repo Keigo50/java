@@ -52,8 +52,8 @@ pageEncoding="UTF-8"%>
                 </div>
                 <div class="main_list">
                 	<ul class="nav nav-tabs" id="tab">
-  						<li class="active"><a href="ShowServlet">収入・支出</a></li>
-  						<li><a href="Income">収入</a></li>
+  						<li><a href="ShowServlet">収入・支出</a></li>
+  						<li class="active"><a href="Income">収入</a></li>
   						<li><a href="Spending">支出</a></li>
 					</ul>
                     <label>
@@ -93,7 +93,7 @@ pageEncoding="UTF-8"%>
                 <div class="main_table">
                     <table border="1" class="table table-striped table-bordered">
                         <thead>
-							<th>日付</th>
+						  <th>日付</th>
 							<th>カテゴリ</th>
 							<th>品目名</th>
 							<th>金額</th>
