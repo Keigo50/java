@@ -211,15 +211,28 @@ button {
 
 .main_table {
     display: block;
-    width: auto;
-    height: 500px;
+    width:100%;
+    height: auto;
     margin-top: 10px;
     box-shadow: 1px 2px 2px;
+   	overflow-x: scroll;
+    overflow-y: hidden;
+
 }
 
+
 table {
-    width: 100%;
+    min-width:670px;
     height: auto;
+}
+
+.table{
+	margin-bottom: 0;
+}
+
+
+table thead th{
+	text-align: center;
 }
 
 .footer {

@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+ <%@page import="dao.AQualityDAO" %>
+ <%@page import="dto.IncomeDto" %>
+ <%@page import="java.util.ArrayList" %>
+  <%ArrayList<IncomeDto> result = (ArrayList<IncomeDto>)request.getAttribute("result");
+  String strSearch = (String)request.getParameter("search");
+  %>
+
+
+
     <!DOCTYPE html>
     <html lang="ja">
 
@@ -93,18 +102,30 @@ pageEncoding="UTF-8"%>
                 <div class="main_table">
                     <table border="1" class="table table-striped table-bordered">
                         <thead>
-						  <th>日付</th>
+                          <tr>
+						  	<th>日付</th>
 							<th>カテゴリ</th>
-							<th>品目名</th>
 							<th>金額</th>
 							<th>入金先</th>
-							<th>支払元</th>
-							<th>お店の名前</th>
 							<th>メモ</th>
+						</tr>
                         </thead>
                         <tbody>
-							<td>okaimono</td>
-							<td>kinngaku</td>
+
+
+        <%ArrayList<IncomeDto> data = AQualityDAO.searchAllIncome();%><!-- データベースに入っているデータ数を格納-->
+       <%for(int i = 0;i < data.size();i++){ %>
+        <% IncomeDto chara = (IncomeDto) request.getAttribute("Chara" + (i + 1));
+        System.out.print(chara);%>
+       <tr>
+          <td><%=chara.getId() %></td>
+          <td><%=chara.getDate()%></td>
+          <td><%=chara.getCategory()%></td>
+          <td><%=chara.getMoney() %></td>
+          <td><%=chara.getPayment_destination() %></td>
+          <td><%=chara.getMemo() %></td>
+       </tr>
+      <%} %>
                         </tbody>
                     </table>
                 </div>

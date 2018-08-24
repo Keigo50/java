@@ -93,18 +93,21 @@ pageEncoding="UTF-8"%>
                 <div class="main_table">
                     <table border="1" class="table table-striped table-bordered">
                         <thead>
+                         <tr>
 							<th>日付</th>
 							<th>カテゴリ</th>
 							<th>品目名</th>
 							<th>金額</th>
-							<th>入金先</th>
 							<th>支払元</th>
 							<th>お店の名前</th>
 							<th>メモ</th>
+						 </tr>
                         </thead>
                         <tbody>
+                          <tr>
 							<td>okaimono</td>
 							<td>kinngaku</td>
+						 </tr>
                         </tbody>
                     </table>
                 </div>

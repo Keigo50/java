@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AQualityDAO;
+import dto.IncomeDto;
 /**-
  * Servlet implementation class ShowServlet
  */
@@ -30,6 +33,23 @@ public class Income extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
+
+
+
+		//データベースから値を取得
+			ArrayList<IncomeDto> character = AQualityDAO.searchAllIncome();
+
+			//取得した値をリクエストスコープへ
+			for(int i = 0 ; i < character.size() ; i++){
+
+				//スコープ格納用のパラメータ名の作成
+				String param = "Chara"+(i + 1);
+
+				//リクエストスコープへ保存
+				request.setAttribute(param,character.get(i));
+
+			}
+
 
 		//結果表示用のJSPへフォワード
 		String view = "/WEB-INF/view/Income.jsp";
