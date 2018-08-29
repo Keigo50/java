@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.AQualityDAO;
-import dto.SpendingDto;
 
 /**-
  * Servlet implementation class ShowServlet
  */
-@WebServlet("/Spending")
-public class Spending extends HttpServlet {
+@WebServlet("/ResultSpending")
+public class ResultSpending extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Spending() {
+    public ResultSpending() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,23 +33,19 @@ public class Spending extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 
-		//データベースから値を取得
-		ArrayList<SpendingDto> spending = AQualityDAO.searchAllSpending();
+		String strdate = request.getParameter("date");
+		String name = request.getParameter("name");
+		String category = request.getParameter("category");
+		String money = request.getParameter("money");
+		String payment_source = request.getParameter("payment_source");
+		String store_name = request.getParameter("store_name");
+		String memo = request.getParameter("memo");
 
-		//取得した値をリクエストスコープへ
-		for(int i = 0 ; i < spending.size() ; i++){
-
-			//スコープ格納用のパラメータ名の作成
-			String param = "Spending"+(i + 1);
-
-			//リクエストスコープへ保存
-			request.setAttribute(param,spending.get(i));
-
-		}
+	AQualityDAO.InsertSpending(strdate,name,category, money, payment_source,store_name, memo);
 
 
 		//結果表示用のJSPへフォワード
-		String view = "/WEB-INF/view/Spending.jsp";
+		String view = "/WEB-INF/view/SpendingInsert.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);}
 

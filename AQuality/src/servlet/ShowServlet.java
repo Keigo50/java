@@ -31,6 +31,7 @@ public class ShowServlet extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 
+
 		//結果表示用のJSPへフォワード
 		String view = "/WEB-INF/view/Top.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);

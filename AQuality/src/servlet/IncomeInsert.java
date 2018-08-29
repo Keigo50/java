@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AQualityDAO;
-import dto.SpendingDto;
-
 /**-
  * Servlet implementation class ShowServlet
  */
-@WebServlet("/Spending")
-public class Spending extends HttpServlet {
+@WebServlet("/IncomeInsert")
+public class IncomeInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Spending() {
+    public IncomeInsert() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,23 +31,8 @@ public class Spending extends HttpServlet {
 		//文字コードの設定
 		request.setCharacterEncoding("UTF-8");
 
-		//データベースから値を取得
-		ArrayList<SpendingDto> spending = AQualityDAO.searchAllSpending();
-
-		//取得した値をリクエストスコープへ
-		for(int i = 0 ; i < spending.size() ; i++){
-
-			//スコープ格納用のパラメータ名の作成
-			String param = "Spending"+(i + 1);
-
-			//リクエストスコープへ保存
-			request.setAttribute(param,spending.get(i));
-
-		}
-
-
 		//結果表示用のJSPへフォワード
-		String view = "/WEB-INF/view/Spending.jsp";
+		String view = "/WEB-INF/view/IncomeInsert.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		dispatcher.forward(request, response);}
 

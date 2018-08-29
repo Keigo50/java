@@ -61,9 +61,11 @@ $(nav.click(function(){
 }));
 
 
+//alertを表示
 
-
-
+$("#subbtn").click(function(){
+	$(".alert").css("display","block");
+});
 
 
 
