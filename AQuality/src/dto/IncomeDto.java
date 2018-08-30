@@ -3,7 +3,8 @@ package dto;
 import java.util.Date;
 
 public class IncomeDto {
-	private int id;
+
+	private String type;
 	private Date date;
 	private String category;
 	private String money;
@@ -11,9 +12,9 @@ public class IncomeDto {
 	private String memo;
 
 
-	public IncomeDto(int id, Date date, String category, String money, String payment_destination, String memo) {
+	public IncomeDto( String type,Date date, String category, String money, String payment_destination, String memo) {
 		super();
-		this.id = id;
+		this.type = type;
 		this.date = date;
 		this.category = category;
 		this.money = money;
@@ -22,14 +23,15 @@ public class IncomeDto {
 	}
 
 
-	public int getId() {
-		return id;
+	public String getType() {
+		return type;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setType(String type) {
+		this.type = type;
 	}
+
 
 
 	public Date getDate() {

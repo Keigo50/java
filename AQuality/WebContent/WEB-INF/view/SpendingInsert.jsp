@@ -105,7 +105,7 @@ pageEncoding="UTF-8"%>
 
                 <div class="form-group">
                     <label>日付</label>
-                    <input type="text" class="form-control" name="date" placeholder="yyyy-mm-ss" required>
+                    <input type="text" class="form-control" name="date" placeholder="yyyy-mm-dd" required>
                 </div>
 
                 <div class="form-group">

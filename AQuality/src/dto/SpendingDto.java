@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class SpendingDto {
 
-	private int id;
+	private String type;
 	private Date date;
 	private String category;
 	private String name;
@@ -15,9 +15,9 @@ public class SpendingDto {
 
 
 
-	public SpendingDto(int id, Date date, String category,String name, String money, String payment_source, String store_name,String memo) {
+	public SpendingDto(String type, Date date, String category,String name, String money, String payment_source, String store_name,String memo) {
 		super();
-		this.id = id;
+		this.type = type;
 		this.date = date;
 		this.category = category;
 		this.name = name;
@@ -29,15 +29,16 @@ public class SpendingDto {
 
 
 
-	public int getId() {
-		return id;
+	public String getType() {
+		return type;
 	}
 
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setType(String type) {
+		this.type = type;
 	}
+
 
 
 

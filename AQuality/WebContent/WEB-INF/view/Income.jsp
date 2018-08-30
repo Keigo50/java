@@ -106,7 +106,7 @@ pageEncoding="UTF-8"%>
                 <table border="1" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>種別</th>
                             <th>日付</th>
                             <th>カテゴリ</th>
                             <th>金額</th>
@@ -120,25 +120,25 @@ pageEncoding="UTF-8"%>
                         <%ArrayList<IncomeDto> data = AQualityDAO.searchAllIncome();%>
                         <!-- データベースに入っているデータ数を格納-->
                         <%for(int i = 0;i < data.size();i++){ %>
-                        <% IncomeDto chara = (IncomeDto) request.getAttribute("Chara" + (i + 1));%>
+                        <% IncomeDto inc = (IncomeDto) request.getAttribute("Income" + (i + 1));%>
                         <tr>
                             <td>
-                                <%=chara.getId() %>
+                                <%=inc.getType() %>
                             </td>
                             <td>
-                                <%=chara.getDate()%>
+                                <%=inc.getDate()%>
                             </td>
                             <td>
-                                <%=chara.getCategory()%>
+                                <%=inc.getCategory()%>
                             </td>
                             <td>
-                                <%=chara.getMoney() %>
+                                <%=inc.getMoney() %>
                             </td>
                             <td>
-                                <%=chara.getPayment_destination() %>
+                                <%=inc.getPayment_destination() %>
                             </td>
                             <td>
-                                <%=chara.getMemo() %>
+                                <%=inc.getMemo() %>
                             </td>
                         </tr>
                         <%} %>

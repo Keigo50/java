@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@page import="dao.AQualityDAO" %>
+<%@page import="dto.AllDto" %>
+<%@page import="java.util.ArrayList" %>
+<%ArrayList<AllDto> result = (ArrayList<AllDto>)request.getAttribute("result");%>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -103,7 +108,7 @@ pageEncoding="UTF-8"%>
                 <table border="1" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>種別</th>
                             <th>日付</th>
                             <th>カテゴリ</th>
                             <th>品目名</th>
@@ -115,10 +120,43 @@ pageEncoding="UTF-8"%>
                         </tr>
                     </thead>
                     <tbody>
+                     <%ArrayList<AllDto> data = AQualityDAO.searchAll();%>
+                        <!-- データベースに入っているデータ数を格納-->
+                        <%for(int i = 0;i < data.size();i++){ %>
+                        <% AllDto all = (AllDto) request.getAttribute("Aquality" + (i + 1));%>
                         <tr>
-                            <td>okaimono</td>
-                            <td>kinngaku</td>
+                            <td>
+                                <%=all.getType() %>
+                            </td>
+                            <td>
+                                <%=all.getDate()%>
+                            </td>
+                            <td>
+
+                                <%=all.getCategory()%>
+                            </td>
+                            <td>
+                                <%=all.getName()%>
+                            </td>
+                            <td>
+                                <%=all.getMoney() %>
+                            </td>
+                            <td>
+                                <%=all.getPayment_source() %>
+                            </td>
+
+                            <td>
+                                <%=all.getPayment_destination() %>
+                            </td>
+                            <td>
+                                <%=all.getStore_name() %>
+                            </td>
+                            <td>
+                                <%=all.getMemo() %>
+                            </td>
                         </tr>
+                        <%} %>
+
                     </tbody>
                 </table>
             </div>

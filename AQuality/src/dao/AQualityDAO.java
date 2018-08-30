@@ -33,14 +33,14 @@ public class AQualityDAO {
 						"keigo",
 						"2345");
 
-				String sql = "SELECT * FROM 家計簿";
+				String sql = "SELECT * FROM 家計簿 order by 日付 asc";
 
 				pstmt = con.prepareStatement(sql);
 
 				rs = pstmt.executeQuery();
 
 				while(rs.next() == true ){
-					int id = rs.getInt("ID");
+					String type = rs.getString("種別");
 					Date date = rs.getDate("日付");
 					String name = rs.getString("品目名");
 					String category = rs.getString("カテゴリ");
@@ -49,7 +49,7 @@ public class AQualityDAO {
 					String payment_source = rs.getString("支払元");
 					String store_name = rs.getString("お店の名前");
 					String memo = rs.getString("メモ");
-					resultList.add(new AllDto(id,date,category,name,money,payment_destination,payment_source, store_name,memo));
+					resultList.add(new AllDto(type,date,category,name,money,payment_destination,payment_source, store_name,memo));
 				}
 
 			} catch (ClassNotFoundException e) {
@@ -108,20 +108,20 @@ public class AQualityDAO {
 					"keigo",
 					"2345");
 
-			String sql = "SELECT * FROM 収入";
+			String sql = "SELECT * FROM 家計簿 where 種別 = '収入'  order by 日付 asc";
 
 			pstmt = con.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while(rs.next() == true ){
-				int id = rs.getInt("ID");
+				String type = rs.getString("種別");
 				Date date = rs.getDate("日付");
 				String category = rs.getString("カテゴリ");
 				String money = rs.getString("金額");
 				String payment_destination = rs.getString("入金先");
 				String memo = rs.getString("メモ");
-				resultList.add(new IncomeDto(id,date,category,money,payment_destination, memo));
+				resultList.add(new IncomeDto(type,date,category,money,payment_destination, memo));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -182,14 +182,14 @@ public class AQualityDAO {
 					"keigo",
 					"2345");
 
-			String sql = "SELECT * FROM 支出";
+			String sql = "SELECT * FROM 家計簿 where 種別 = '支出'  order by 日付 asc";
 
 			pstmt = con.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();
 
 			while(rs.next() == true ){
-				int id = rs.getInt("ID");
+				String type = rs.getString("種別");
 				Date date = rs.getDate("日付");
 				String category = rs.getString("カテゴリ");
 				String name = rs.getString("品目名");
@@ -197,7 +197,7 @@ public class AQualityDAO {
 				String payment_source = rs.getString("支払元");
 				String store_name = rs.getString("お店の名前");
 				String memo = rs.getString("メモ");
-				resultList.add(new SpendingDto(id,date,category,name,money,payment_source,store_name, memo));
+				resultList.add(new SpendingDto(type,date,category,name,money,payment_source,store_name, memo));
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -255,15 +255,22 @@ public class AQualityDAO {
 					"2345");
 
 
-			String sql = " INSERT INTO 収入(日付,カテゴリ,金額,入金先,メモ) VALUES(?,?,?,?,?);";
-
+			String sql = " INSERT INTO 家計簿(種別,日付,カテゴリ,品目名,金額,入金先,支払元,お店の名前,メモ) VALUES(?,?,?,?,?,?,?,?,?);";
+			String type = "収入";
+			String payment  = "";
+			String store  = "";
+			String name  = "";
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setString(1,strdate);
-			pstmt.setString(2,category);
-			pstmt.setString(3, money);
-			pstmt.setString(4, payment_destination);
-			pstmt.setString(5,  memo);
+			pstmt.setString(1,type);
+			pstmt.setString(2,strdate);
+			pstmt.setString(3,category);
+			pstmt.setString(4,name);
+			pstmt.setString(5,money);
+			pstmt.setString(6,payment_destination);
+			pstmt.setString(7,payment);
+			pstmt.setString(8,store);
+			pstmt.setString(9,memo);
 
 			pstmt.executeUpdate();
 		} catch (ClassNotFoundException e) {
@@ -311,17 +318,20 @@ public class AQualityDAO {
 					"2345");
 
 
-			String sql = " INSERT INTO 支出(日付,カテゴリ,品目名,金額,	支払元,お店の名前,メモ) VALUES(?,?,?,?,?,?,?);";
-
+			String sql = " INSERT INTO 家計簿(種別,日付,カテゴリ,品目名,金額,入金先,支払元,お店の名前,メモ) VALUES(?,?,?,?,?,?,?,?,?);";
+			String type = "支出";
+			String payment = "";
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setString(1,strdate);
-			pstmt.setString(2,category);
-			pstmt.setString(3,name);
-			pstmt.setString(4, money);
-			pstmt.setString(5, payment_source);
-			pstmt.setString(6, store_name);
-			pstmt.setString(7,  memo);
+			pstmt.setString(1,type);
+			pstmt.setString(2,strdate);
+			pstmt.setString(3,category);
+			pstmt.setString(4,name);
+			pstmt.setString(5, money);
+			pstmt.setString(6, payment);
+			pstmt.setString(7, payment_source);
+			pstmt.setString(8, store_name);
+			pstmt.setString(9,  memo);
 
 			pstmt.executeUpdate();
 		} catch (ClassNotFoundException e) {

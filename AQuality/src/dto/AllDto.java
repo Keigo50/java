@@ -4,19 +4,22 @@ import java.util.Date;
 
 public class AllDto {
 
-	private int id;
+	private String type;
 	private Date date;
 	private String category;
 	private String name;
 	private String money;
 	private String payment_source;
+	private String payment_destination;
 	private String store_name;
 	private String memo;
-	private String payment_destination;
-	public AllDto(int id, Date date, String category, String name, String money, String payment_source,
-			String store_name, String memo, String payment_destination) {
+
+
+
+	public AllDto(String type,Date date, String category, String name, String money, String payment_source,String payment_destination,
+			String store_name, String memo) {
 		super();
-		this.id = id;
+		this.type = type;
 		this.date = date;
 		this.category = category;
 		this.name = name;
@@ -26,12 +29,7 @@ public class AllDto {
 		this.memo = memo;
 		this.payment_destination = payment_destination;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -79,6 +77,12 @@ public class AllDto {
 	}
 	public void setPayment_destination(String payment_destination) {
 		this.payment_destination = payment_destination;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 
 

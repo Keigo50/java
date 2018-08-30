@@ -60,14 +60,11 @@ $(nav.click(function(){
 	$("#gnavi").slideToggle(350);
 }));
 
+var sub =$("submit");
 
-//alertを表示
-
-$("#subbtn").click(function(){
-	$(".alert").css("display","block");
-});
-
-
+$(sub.click(function(){
+	alert("入力されました。");
+}));
 
 
 

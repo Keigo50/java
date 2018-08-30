@@ -105,7 +105,7 @@ pageEncoding="UTF-8"%>
                 <table border="1" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>種別</th>
                             <th>日付</th>
                             <th>カテゴリ</th>
                             <th>品目名</th>
@@ -123,7 +123,7 @@ pageEncoding="UTF-8"%>
                         <% SpendingDto sp = (SpendingDto) request.getAttribute("Spending" + (i + 1));%>
                         <tr>
                             <td>
-                                <%=sp.getId() %>
+                                <%=sp.getType() %>
                             </td>
                             <td>
                                 <%=sp.getDate()%>

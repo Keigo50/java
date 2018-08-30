@@ -37,16 +37,16 @@ public class Income extends HttpServlet {
 
 
 		//データベースから値を取得
-			ArrayList<IncomeDto> character = AQualityDAO.searchAllIncome();
+			ArrayList<IncomeDto> income = AQualityDAO.searchAllIncome();
 
 			//取得した値をリクエストスコープへ
-			for(int i = 0 ; i < character.size() ; i++){
+			for(int i = 0 ; i < income.size() ; i++){
 
 				//スコープ格納用のパラメータ名の作成
-				String param = "Chara"+(i + 1);
+				String param = "Income"+(i + 1);
 
 				//リクエストスコープへ保存
-				request.setAttribute(param,character.get(i));
+				request.setAttribute(param,income.get(i));
 
 			}
 

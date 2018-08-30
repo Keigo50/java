@@ -41,7 +41,7 @@ public class ResultSpending extends HttpServlet {
 		String store_name = request.getParameter("store_name");
 		String memo = request.getParameter("memo");
 
-	AQualityDAO.InsertSpending(strdate,name,category, money, payment_source,store_name, memo);
+	AQualityDAO.InsertSpending(strdate,category,name, money, payment_source,store_name, memo);
 
 
 		//結果表示用のJSPへフォワード
